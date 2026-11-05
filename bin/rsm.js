@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
-const readline = require('readline');
+const prompts = require('prompts');
 
 const SKILL_SOURCE = path.resolve(__dirname, '..', 'SKILL.md');
 
@@ -12,11 +12,11 @@ function getHomeDir() {
 }
 
 const TARGET_OPTIONS = [
-  { id: 'antigravity', label: '🪐 Antigravity / Gemini CLI (~/.gemini/config/skills/rsm/SKILL.md)', checked: true },
-  { id: 'claude', label: '🟣 Claude Code (~/.claude/skills/rsm/SKILL.md)', checked: false },
-  { id: 'cursor', label: '⚡ Cursor IDE (.cursor/rules/rsm.mdc)', checked: false },
-  { id: 'windsurf', label: '🌊 Windsurf (.windsurfrules)', checked: false },
-  { id: 'local', label: '📁 Diretório Atual / Projeto Local (./SKILL.md)', checked: false }
+  { title: '🪐 Antigravity / Gemini CLI', value: 'antigravity', selected: true, description: '~/.gemini/config/skills/rsm' },
+  { title: '🟣 Claude Code', value: 'claude', description: '~/.claude/skills/rsm' },
+  { title: '⚡ Cursor IDE', value: 'cursor', description: '.cursor/rules/rsm.mdc' },
+  { title: '🌊 Windsurf', value: 'windsurf', description: '.windsurfrules' },
+  { title: '📁 Projeto Local', value: 'local', description: './SKILL.md' }
 ];
 
 function printHelp() {
@@ -96,99 +96,6 @@ function installToTarget(target) {
   }
 }
 
-function interactiveSelect(options) {
-  return new Promise((resolve) => {
-    if (!process.stdin.isTTY) {
-      console.log('\nEscolha em quais IAs deseja instalar a OmniRSM:');
-      options.forEach((opt, idx) => {
-        console.log(`  [${idx + 1}] ${opt.label}`);
-      });
-      console.log(`  [a] Todas as opções acima`);
-
-      const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-      });
-
-      rl.question('\nDigite os números separados por vírgula (ex: 1, 3) ou Enter para [1]: ', (answer) => {
-        rl.close();
-        const trimmed = answer.trim().toLowerCase();
-        if (!trimmed) {
-          return resolve([options[0].id]);
-        }
-        if (trimmed === 'a' || trimmed === 'all' || trimmed === 'todas') {
-          return resolve(options.map(o => o.id));
-        }
-        const selectedIndexes = trimmed
-          .split(/[\s,]+/)
-          .map(n => parseInt(n, 10) - 1)
-          .filter(i => i >= 0 && i < options.length);
-
-        if (selectedIndexes.length === 0) {
-          return resolve([options[0].id]);
-        }
-        resolve(selectedIndexes.map(i => options[i].id));
-      });
-      return;
-    }
-
-    readline.emitKeypressEvents(process.stdin);
-    process.stdin.setRawMode(true);
-
-    let cursor = 0;
-    const selected = options.map(o => !!o.checked);
-
-    function render(isFirst = false) {
-      if (!isFirst) {
-        readline.moveCursor(process.stdout, 0, -(options.length + 3));
-      }
-      console.log('\x1b[1m\x1b[36m? Em quais IAs você deseja instalar a OmniRSM?\x1b[0m \x1b[2m(Setas: mover | Espaço: marcar/desmarcar | Enter: confirmar)\x1b[0m');
-      options.forEach((opt, idx) => {
-        const isCurrent = idx === cursor;
-        const isChecked = selected[idx];
-        const pointer = isCurrent ? '\x1b[36m❯\x1b[0m' : ' ';
-        const box = isChecked ? '\x1b[32m[✓]\x1b[0m' : '\x1b[90m[ ]\x1b[0m';
-        const text = isCurrent ? `\x1b[36m\x1b[1m${opt.label}\x1b[0m` : opt.label;
-        console.log(` ${pointer} ${box} ${text}`);
-      });
-      console.log('\x1b[90m(Pressione Enter para confirmar a seleção)\x1b[0m');
-    }
-
-    render(true);
-
-    function onKeypress(str, key) {
-      if (key.ctrl && key.name === 'c') {
-        process.stdin.setRawMode(false);
-        process.stdin.pause();
-        process.exit(0);
-      }
-
-      if (key.name === 'up') {
-        cursor = (cursor - 1 + options.length) % options.length;
-        render();
-      } else if (key.name === 'down') {
-        cursor = (cursor + 1) % options.length;
-        render();
-      } else if (key.name === 'space' || str === ' ') {
-        selected[cursor] = !selected[cursor];
-        render();
-      } else if (key.name === 'return' || key.name === 'enter') {
-        process.stdin.setRawMode(false);
-        process.stdin.pause();
-        process.stdin.removeListener('keypress', onKeypress);
-        const result = options.filter((_, idx) => selected[idx]).map(o => o.id);
-        console.log('');
-        if (result.length === 0) {
-          result.push(options[0].id);
-        }
-        resolve(result);
-      }
-    }
-
-    process.stdin.on('keypress', onKeypress);
-  });
-}
-
 async function main() {
   const args = process.argv.slice(2);
   const command = args[0] ? args[0].toLowerCase() : 'install';
@@ -213,16 +120,35 @@ async function main() {
   if (command === 'install') {
     const rawTargets = args.slice(1);
     if (rawTargets.length > 0) {
-      targets = rawTargets.flatMap(t => t.toLowerCase() === 'all' ? TARGET_OPTIONS.map(o => o.id) : t.split(/[\s,]+/));
+      targets = rawTargets.flatMap(t => t.toLowerCase() === 'all' ? TARGET_OPTIONS.map(o => o.value) : t.split(/[\s,]+/));
     }
-  } else if (TARGET_OPTIONS.some(o => o.id === command) || command === 'all') {
-    targets = command === 'all' ? TARGET_OPTIONS.map(o => o.id) : [command];
+  } else if (TARGET_OPTIONS.some(o => o.value === command) || command === 'all') {
+    targets = command === 'all' ? TARGET_OPTIONS.map(o => o.value) : [command];
   }
 
   if (targets.length === 0) {
-    // Show interactive selection menu
-    console.log(`\n🧠 OmniRSM Installer`);
-    targets = await interactiveSelect(TARGET_OPTIONS);
+    const response = await prompts(
+      {
+        type: 'multiselect',
+        name: 'selected',
+        message: 'Em quais IAs você deseja instalar a OmniRSM?',
+        choices: TARGET_OPTIONS,
+        hint: '- Espaço para marcar/desmarcar. Enter para confirmar',
+        instructions: false
+      },
+      {
+        onCancel: () => {
+          console.log('\nInstalação cancelada pelo usuário.');
+          process.exit(0);
+        }
+      }
+    );
+
+    targets = response.selected || [];
+    if (targets.length === 0) {
+      console.log('Nenhuma IA selecionada. Usando Antigravity como padrão.');
+      targets = ['antigravity'];
+    }
   }
 
   console.log(`\nInstalando OmniRSM em [${targets.join(', ')}]...`);
