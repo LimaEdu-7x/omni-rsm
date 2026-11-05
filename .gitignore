@@ -11,3 +11,5 @@ package-lock.json
 PROJETO.md
 *.log
 .env
+.cursor/
+.windsurfrules

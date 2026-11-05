@@ -74,33 +74,36 @@ OmniRSM is designed to be triggered inside your AI assistant using the `/rsm` sl
 
 ## 📦 Installation Guide for All AIs
 
-### 1. Quick Install via NPX (Instant & Zero Setup)
-Run anywhere without installing dependencies:
+### 1. Interactive Multi-Select Installer (Recommended)
+Simply run `npx omni-rsm` or `npx omni-rsm install` to open the interactive checkbox menu. Use **Arrow Keys** to navigate, **Spacebar** to toggle multiple AIs, and **Enter** to install:
 
 ```bash
-# Instant install directly via GitHub:
-npx github:LimaEdu-7x/omni-rsm install [target]
-
-# Or via NPM registry (once published):
-npx omni-rsm install [target]
+npx omni-rsm install
 ```
 
-#### Targets:
+```text
+🧠 OmniRSM Installer
+? Em quais IAs você deseja instalar a OmniRSM? (Setas: mover | Espaço: marcar/desmarcar | Enter: confirmar)
+ ❯ [✓] 🪐 Antigravity / Gemini CLI (~/.gemini/config/skills/rsm/SKILL.md)
+   [✓] 🟣 Claude Code (~/.claude/skills/rsm/SKILL.md)
+   [✓] ⚡ Cursor IDE (.cursor/rules/rsm.mdc)
+   [ ] 🌊 Windsurf (.windsurfrules)
+   [ ] 📁 Diretório Atual / Projeto Local (./SKILL.md)
+(Pressione Enter para confirmar a seleção)
+```
+
+#### Headless / Direct Multi-Install:
+You can also specify multiple targets directly via command line:
+
 ```bash
-# Install to Google Antigravity / Gemini CLI
-npx github:LimaEdu-7x/omni-rsm install antigravity
+# Install to ALL supported environments at once:
+npx omni-rsm install all
 
-# Install to Claude Code
-npx github:LimaEdu-7x/omni-rsm install claude
+# Install to specific multiple environments:
+npx omni-rsm install antigravity claude cursor
 
-# Install to Cursor IDE (.cursor/rules/rsm.mdc)
-npx github:LimaEdu-7x/omni-rsm install cursor
-
-# Install to Windsurf (.windsurfrules)
-npx github:LimaEdu-7x/omni-rsm install windsurf
-
-# Copy SKILL.md into current directory
-npx github:LimaEdu-7x/omni-rsm install local
+# Or directly from GitHub without registry cache:
+npx github:LimaEdu-7x/omni-rsm install
 ```
 
 ---
