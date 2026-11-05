@@ -74,24 +74,33 @@ OmniRSM is designed to be triggered inside your AI assistant using the `/rsm` sl
 
 ## 📦 Installation Guide for All AIs
 
-### 1. Quick Install via NPX / NPM (Recommended)
-You can automatically install OmniRSM to your preferred AI environment with zero configuration:
+### 1. Quick Install via NPX (Instant & Zero Setup)
+Run anywhere without installing dependencies:
 
 ```bash
+# Instant install directly via GitHub:
+npx github:LimaEdu-7x/omni-rsm install [target]
+
+# Or via NPM registry (once published):
+npx omni-rsm install [target]
+```
+
+#### Targets:
+```bash
 # Install to Google Antigravity / Gemini CLI
-npx omni-rsm install antigravity
+npx github:LimaEdu-7x/omni-rsm install antigravity
 
 # Install to Claude Code
-npx omni-rsm install claude
+npx github:LimaEdu-7x/omni-rsm install claude
 
 # Install to Cursor IDE (.cursor/rules/rsm.mdc)
-npx omni-rsm install cursor
+npx github:LimaEdu-7x/omni-rsm install cursor
 
 # Install to Windsurf (.windsurfrules)
-npx omni-rsm install windsurf
+npx github:LimaEdu-7x/omni-rsm install windsurf
 
-# Or copy SKILL.md into your current directory
-npx omni-rsm install local
+# Copy SKILL.md into current directory
+npx github:LimaEdu-7x/omni-rsm install local
 ```
 
 ---
