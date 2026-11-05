@@ -1,7 +1,7 @@
 {
   "name": "omni-rsm",
-  "version": "1.0.3",
-  "description": "Universal AI skill & CLI for deep research and multi-source distillation: YouTube, TikTok, Instagram Reels, Twitch, Kick, GitHub repositories, web articles and papers.",
+  "version": "1.1.0",
+  "description": "Universal Brazilian AI skill & CLI for deep research, tool hunting, and multi-source distillation: YouTube, TikTok, Instagram Reels, Twitch, Kick, GitHub repositories, web articles and papers.",
   "main": "index.js",
   "bin": {
     "omni-rsm": "bin/rsm.js",
@@ -14,10 +14,13 @@
     "ai",
     "skill",
     "agent-skill",
+    "brazil",
     "summarizer",
     "deep-research",
+    "tool-hunter",
     "fabric",
     "repomix",
+    "remotion",
     "youtube",
     "tiktok",
     "instagram",
