@@ -1,0 +1,13 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Internal Maestri files & private notes
+.maestri/
+PROJETO.md
+*.log
+.env
