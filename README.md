@@ -1,81 +1,101 @@
 # OmniRSM 🧠⚡
 
-> **Universal Deep Research & Multi-Source Distillation Engine for AI Coding Agents and LLMs.**
-> Turn YouTube videos, TikToks, Instagram Reels, Twitch VODs, Kick streams, GitHub repositories, research papers, and technical websites into clean, high-signal intelligence with a single command.
+> **Universal Deep Research, Tool Hunter & Multi-Source Distillation Engine for AI Coding Agents and LLMs.**  
+> 🇧🇷 **Projeto Brasileiro Open-Source** feito com foco em alta densidade de sinal, pesquisa profunda e caça ativa de ferramentas gratuitas.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Origin: Brazil](https://img.shields.io/badge/Made%20in-Brazil%20%F0%9F%87%A7%F0%9F%87%B7-green.svg)](#-projeto-brasileiro-open-source)
 [![Skill: Antigravity](https://img.shields.io/badge/Skill-Antigravity-orange.svg)](#antigravity--gemini-cli)
 [![Compatible: Claude Code](https://img.shields.io/badge/Compatible-Claude%20Code-purple.svg)](#claude-code)
 [![Compatible: Cursor](https://img.shields.io/badge/Compatible-Cursor%20%2F%20Windsurf-teal.svg)](#cursor-ide)
-[![NPM Version](https://img.shields.io/badge/NPM-omni--rsm-red.svg)](#quick-install-via-npx--npm)
+[![NPM Version](https://img.shields.io/badge/NPM-omni--rsm-red.svg)](https://www.npmjs.com/package/omni-rsm)
+
+Transforme vídeos do YouTube, TikToks, Instagram Reels, streams da Twitch/Kick, repositórios do GitHub, artigos científicos e sites técnicos em relatórios visuais de altíssimo sinal e descubra todas as ferramentas gratuitas mencionadas com um único comando.
 
 ---
 
-## 🎯 What is OmniRSM?
+## 🇧🇷 Projeto Brasileiro Open-Source
 
-Modern AI agents often produce generic, shallow summaries filled with AI fluff ("In this interesting video, the creator shares..."). 
+O **OmniRSM** nasceu no Brasil com a missão de empoderar desenvolvedores, criadores de conteúdo e entusiastas de IA a extrair conhecimento de verdade da web, eliminando o "blá-blá-blá" e o lixo gerado por inteligências artificiais.
 
-**OmniRSM** solves this by fusing the best open-source cognitive distillation patterns and extraction utilities into one unified skill:
-- **Zero Fluff (No AI Slop):** Direct, high-density distillation.
-- **Universal Multi-Platform Support:** Extracts from long videos, short clips, livestreams, codebases, papers, and web articles.
-- **Architectural Raio-X:** Generates Mermaid dataflow diagrams, folder trees, and developer onboarding guides for code repositories.
-- **Triangulated Deep Research:** Breaks down complex inquiries, cross-checks multiple authoritative sources, and synthesizes technical dossiers.
+Criado e mantido por [Eduardo Lima (LimaEdu-7x)](https://github.com/LimaEdu-7x), o projeto prioriza:
+- **Democratização e Acesso Gratuito:** Mapeamento ativo de ferramentas open-source, comandos de terminal prontos e tiers 100% gratuitos.
+- **Linguagem Clara e Visual:** Conteúdo estruturado de forma didática e empolgante, legível tanto para um profissional sênior quanto para um jovem começando na área de tecnologia.
+- **Ecossistema Aberto:** Integração nativa com Antigravity, Claude Code, Maestri Canvas, Cursor, Windsurf e ChatGPT.
 
 ---
 
-## 🚀 Supported Platforms & Ingestion Pipelines
+## 🎯 O que é o OmniRSM?
 
-| Category | Platforms | Engine / Fallback Strategy | Primary Output |
+A maioria dos resumos automáticos de IA é rasa, genérica e cheia de enrolação (*"Neste vídeo fascinante, o palestrante aborda..."*).
+
+O **OmniRSM** une os melhores padrões mundiais de destilação cognitiva em uma única skill unificada:
+1. **Zero Enrolação (No AI Slop):** Vai direto ao cerne técnico e prático.
+2. **Caçador de Ferramentas & Free Stack Scout (`--tools`):** Detecta ferramentas, bibliotecas e frameworks citados por criadores, localiza seus links oficiais e comandos exatos de instalação (npm, pip, winget, brew, docker), priorizando alternativas gratuitas.
+3. **Sintetizador de Skills:** Avalia se um workflow deve se tornar uma nova Skill de IA e conecta com o ecossistema existente.
+4. **Exportação sob Medida:** Gera relatórios ultra-visuais em `.md` ou `.txt` organizados em pastas dedicadas.
+5. **Suporte Multimídia Completo:** Processa desde vídeos longos do YouTube e VODs de streamers até Reels curtos, papers do arXiv e repositórios inteiros de código.
+
+---
+
+## 🚀 Plataformas Suportadas & Estratégia de Ingestão
+
+| Categoria | Plataformas | Motor / Estratégia de Extração | Saída Principal |
 | :--- | :--- | :--- | :--- |
-| **Short-Form Video** | TikTok, Instagram Reels, YouTube Shorts | `yt-dlp` audio extraction + Whisper STT + Post captions | Hook analysis, Single Core Idea, Actionable Insight |
-| **Long-Form Video** | YouTube, Vimeo, Rumble, Bilibili | `yt-dlp` native subtitle scraper (`--write-auto-sub`) | Timed sections, Core Thesis, Quotes, Open questions |
-| **Livestreams & VODs** | Twitch, Kick, YouTube Live | `streamlink` / `yt-dlp --download-sections` + Whisper STT | Timeline milestones, peak debate moments, community sentiment |
-| **Code Repositories** | GitHub, GitLab | `repomix --remote` / AST parsing & manifest discovery | Architecture pattern, folder breakdown, Mermaid flow, onboarding |
-| **Web & Papers** | Tech blogs, arXiv, Docs | Jina AI Reader (`r.jina.ai`) | Executive TL;DR, thesis, metrics/evidence, implications |
-| **Deep Research Topics**| Freeform queries | Multi-query decomposition & cross-source triangulation | Structured technical whitepaper & benchmark comparison |
+| **Caça de Ferramentas** | YouTube, Artigos, Tutoriais | Varredura de links oficiais + comandos CLI gratuitos | Tabela de ferramentas, links, comandos e proposta de nova skill |
+| **Vídeos Curtos** | TikTok, Instagram Reels, YouTube Shorts | Extração de áudio `yt-dlp` + Whisper STT + Legendas | Análise de Gancho, Ideia Central Única, Ação Imediata |
+| **Vídeos Longos** | YouTube, Vimeo, Rumble, Bilibili | Scraper de legendas nativas (`--write-auto-sub`) | Roteiro de cenas, Tese central, Citações literais, Perguntas |
+| **Lives & Streams** | Twitch, Kick, YouTube Live | `streamlink` / `yt-dlp --download-sections` + Whisper | Linha do tempo, momentos de debate e opinião da comunidade |
+| **Repositórios** | GitHub, GitLab | `repomix --remote` / AST parsing & detecção de manifests | Padrão arquitetural, árvore de pastas, Mermaid flow, onboarding |
+| **Web & Papers** | Blogs de tecnologia, arXiv, Docs | Leitor Jina AI (`r.jina.ai`) | Resumo executivo, evidências/métricas e takeaways |
+| **Pesquisa Profunda**| Consultas e tópicos livres | Decomposição multi-query e triangulação de fontes | Dossiê técnico completo e comparação de benchmarks |
 
 ---
 
-## ⚡ Command Syntax & Output Flags
+## ⚡ Comandos & Modos de Uso
 
-OmniRSM is designed to be triggered inside your AI assistant using the `/rsm` slash command or standard prompt:
+Execute a skill no seu terminal ou assistente de IA usando o comando `/rsm` ou uma pergunta direta:
 
 ```text
-/rsm [link or topic] [flags]
+/rsm [link ou tópico de pesquisa] [flags]
 ```
 
-### Examples:
+### Exemplos Práticos:
 ```bash
-# Analyze a TikTok or Instagram Reel
-/rsm https://www.tiktok.com/@creator/video/1234567890
+# 🛠️ Caçar ferramentas citadas em um tutorial com comandos de instalação gratuitos
+/rsm https://www.youtube.com/watch?v=suBGHMAjzHs --tools
 
-# Dissect an entire GitHub codebase
+# 🧠 Análise técnica aprofundada de um vídeo longo
+/rsm https://www.youtube.com/watch?v=xyz --deep
+
+# 📱 Extrair insight de um Reel ou TikTok curto
+/rsm https://www.instagram.com/reel/xyz123 --short
+
+# 💻 Raio-X completo da arquitetura de um repositório no GitHub
 /rsm https://github.com/facebook/react --arch
 
-# Ingest a Twitch or Kick VOD
+# 🎮 Mapear tópicos e melhores momentos de uma live na Twitch ou Kick
 /rsm https://www.twitch.tv/videos/12345678 --stream
 
-# Deep-dive a scientific paper or article
-/rsm https://arxiv.org/abs/2301.07041
-
-# Generate an exhaustive comparative technical report
-/rsm "SQLite vs DuckDB for embedded agent memory" --deep
+# 🔬 Dossiê comparativo profundo sobre uma tecnologia
+/rsm "DuckDB vs SQLite para memória persistente de agentes" --deep
 ```
 
-### Available Flags:
-- `--quick`: Ultra-dense 2-sentence TL;DR + 5 actionable bullet points.
-- `--deep`: Exhaustive technical breakdown without omitting edge cases or trade-offs.
-- `--short`: Tailored for short-form video (Hook, Core Idea, Action item).
-- `--stream`: Tailored for long streams (Milestone timeline, debates, highlight moments).
-- `--arch`: Tailored for software repositories (Architecture pattern, directory map, Mermaid diagram).
-- `--wisdom`: Fabric standard (Central ideas, direct verbatim quotes, recommendations, habits).
+### Flags Disponíveis:
+- `--tools`: Caçador de Ferramentas, comandos de instalação gratuitos e gerador de skills.
+- `--deep`: Análise técnica exaustiva sem cortes ou superficialidades.
+- `--quick`: Resumo ultradenso em 2 frases + 5 ações práticas.
+- `--short`: Focado em formatos curtos (Gancho + Ideia Central + Ação).
+- `--stream`: Focado em livestreams e podcasts (Milestones cronológicos e debates).
+- `--arch`: Focado em código (Diagramas Mermaid, árvore de arquivos e fluxo de dados).
+- `--wisdom`: Formato Fabric (Ideias centrais, citações literais, hábitos e perguntas).
 
 ---
 
-## 📦 Installation Guide for All AIs
+## 📦 Como Instalar nas Suas IAs
 
-### 1. Interactive Multi-Select Installer (Recommended)
-Simply run `npx omni-rsm` or `npx omni-rsm install` to open the interactive checkbox menu. Use **Arrow Keys** to navigate, **Spacebar** to toggle multiple AIs, and **Enter** to install:
+### 1. Instalador Interativo via Terminal (Recomendado)
+Execute `npx omni-rsm install` para abrir o menu interativo com caixas de seleção. Use as **Setas** para navegar, **Espaço** para marcar as IAs desejadas e **Enter** para concluir:
 
 ```bash
 npx omni-rsm install
@@ -88,28 +108,27 @@ npx omni-rsm install
    [✓] 🟣 Claude Code (~/.claude/skills/rsm/SKILL.md)
    [✓] ⚡ Cursor IDE (.cursor/rules/rsm.mdc)
    [ ] 🌊 Windsurf (.windsurfrules)
-   [ ] 📁 Diretório Atual / Projeto Local (./SKILL.md)
+   [ ] 📁 Projeto Local (./SKILL.md)
 (Pressione Enter para confirmar a seleção)
 ```
 
-#### Headless / Direct Multi-Install:
-You can also specify multiple targets directly via command line:
-
+#### Instalação Direta sem Menu (Headless):
 ```bash
-# Install to ALL supported environments at once:
+# Instalar em todas as IAs suportadas de uma vez:
 npx omni-rsm install all
 
-# Install to specific multiple environments:
+# Instalar em IAs específicas:
 npx omni-rsm install antigravity claude cursor
 
-# Or directly from GitHub without registry cache:
+# Ou diretamente do repositório no GitHub:
 npx github:LimaEdu-7x/omni-rsm install
 ```
 
 ---
 
-### 2. Antigravity & Gemini CLI (AGY)
-Copy [`SKILL.md`](SKILL.md) directly into your global skills directory:
+### 2. Instalação Manual
+
+#### 🪐 Antigravity & Gemini CLI (AGY)
 ```bash
 # Windows (PowerShell)
 mkdir -p "$HOME\.gemini\config\skills\rsm"
@@ -120,86 +139,42 @@ mkdir -p ~/.gemini/config/skills/rsm
 curl -sL https://raw.githubusercontent.com/LimaEdu-7x/omni-rsm/main/SKILL.md -o ~/.gemini/config/skills/rsm/SKILL.md
 ```
 
----
-
-### 3. Claude Code
-Install to your user-level skills:
+#### 🟣 Claude Code
 ```bash
 mkdir -p ~/.claude/skills/rsm
 curl -sL https://raw.githubusercontent.com/LimaEdu-7x/omni-rsm/main/SKILL.md -o ~/.claude/skills/rsm/SKILL.md
 ```
-Or place it inside your project repo at `.claude/skills/rsm/SKILL.md`.
 
----
-
-### 4. Cursor IDE
-Create a custom rule file at `.cursor/rules/rsm.mdc`:
+#### ⚡ Cursor IDE
 ```bash
 mkdir -p .cursor/rules
 curl -sL https://raw.githubusercontent.com/LimaEdu-7x/omni-rsm/main/SKILL.md -o .cursor/rules/rsm.mdc
 ```
-*(Or paste the contents of `SKILL.md` into your `.cursorrules` file).*
 
----
-
-### 5. Windsurf
-Append the contents of `SKILL.md` to your workspace `.windsurfrules`:
+#### 🌊 Windsurf
 ```bash
 curl -sL https://raw.githubusercontent.com/LimaEdu-7x/omni-rsm/main/SKILL.md >> .windsurfrules
 ```
 
 ---
 
-### 6. ChatGPT / Custom GPTs / Claude Projects / Open WebUI
-1. Copy the raw text of [`SKILL.md`](SKILL.md).
-2. Paste it into your Custom GPT **Instructions** or Claude Project **System Instructions**.
-3. Prefix your prompts with `/rsm [URL]`.
+## 🏆 Créditos & Referências
+
+O **OmniRSM** homenageia e referencia ferramentas, projetos e mentes brilhantes que inspiraram esta arquitetura:
+
+- **[Daniel Miessler's Fabric](https://github.com/danielmiessler/fabric)** — O projeto pioneiro que estabeleceu padrões abertos de destilação de sabedoria (`extract_wisdom`, `analyze_claims`).
+- **[Yamadashy's Repomix](https://github.com/yamadashy/repomix)** — O padrão-ouro de empacotamento de código e controle de tokens para LLMs.
+- **[Jina AI Reader](https://jina.ai/)** — Extração limpa de páginas web em Markdown (`r.jina.ai`).
+- **[yt-dlp](https://github.com/yt-dlp/yt-dlp)** — O canivete suíço definitivo para ingestão de mídia e legendas.
+- **[OpenAI Whisper](https://github.com/openai/whisper) & [SYSTRAN faster-whisper](https://github.com/SYSTRAN/faster-whisper)** — Transcrição de áudio ultra-rápida e precisa.
+- **[Remotion](https://www.remotion.dev/)** — Referência máxima de criação de vídeo e Motion Design programável via código e React.
+- **[Claude Code](https://docs.claude.com/en/docs/claude-code)** — Referência em agentes autônomos de linha de comando.
+- **[Max Carrau / Comunidade Core](https://instagram.com/maxcarrau.ia)** — Referência brasileira em automação de Motion Design com IA e ecossistema de skills.
+- **[Maestri](https://maestri.app)** — A plataforma visual em canvas para orquestração de múltiplos agentes de IA.
 
 ---
 
-## 🛠️ Recommended CLI Helper Tools
+## 📄 Licença
 
-OmniRSM leverages battle-tested open-source utilities to extract media streams and clean web content:
-
-1. **`yt-dlp`** (Media Ingestion):
-   ```bash
-   # Windows (winget)
-   winget install yt-dlp.yt-dlp
-
-   # macOS (Homebrew)
-   brew install yt-dlp
-
-   # Linux
-   sudo apt install yt-dlp || sudo dnf install yt-dlp
-   ```
-2. **`faster-whisper`** (Audio-to-Text Fallback):
-   ```bash
-   pip install faster-whisper
-   ```
-3. **`repomix`** (Remote Git Ingestion):
-   ```bash
-   npx repomix --remote <owner/repo>
-   ```
-4. **`streamlink`** (Live Stream Slicing):
-   ```bash
-   pip install streamlink
-   ```
-
----
-
-## 🏆 Credits & Contributing Open-Source Projects
-
-OmniRSM stands on the shoulders of giants. Special thanks and full credit to the authors of the following foundational projects:
-
-- **[Daniel Miessler's Fabric](https://github.com/danielmiessler/fabric)** — The pioneering cognitive prompt architecture (`extract_wisdom`, `summarize_paper`, `analyze_claims`).
-- **[Yamadashy's Repomix (formerly Repopack)](https://github.com/yamadashy/repomix)** — The single-file AI codebase consolidation and token budgeting standard.
-- **[Jina AI Reader](https://jina.ai/)** — The LLM web scraper converting any URL into clean Markdown via `r.jina.ai`.
-- **[yt-dlp Team](https://github.com/yt-dlp/yt-dlp)** — The Swiss army knife for video and subtitle extraction across 1000+ web platforms.
-- **[OpenAI Whisper](https://github.com/openai/whisper) & [SYSTRAN faster-whisper](https://github.com/SYSTRAN/faster-whisper)** — Ultra-fast, highly accurate open speech-to-text recognition.
-- **[Streamlink](https://github.com/streamlink/streamlink)** — Real-time streaming protocol extractor.
-
----
-
-## 📄 License
-
-Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more information.
+Distribuído sob a licença **MIT**. Veja o arquivo [`LICENSE`](LICENSE) para mais detalhes.  
+Feito com 💚 e 💛 no Brasil por [LimaEdu-7x](https://github.com/LimaEdu-7x).

@@ -1,82 +1,88 @@
 ---
 name: rsm
 description: >
-  Deep research, multi-source ingestion, and distillation engine (/rsm).
-  Ingests and deeply summarizes YouTube, TikTok, Instagram Reels, Twitch, Kick,
-  Twitter/X, GitHub repositories, web articles, documentation, and complex topics
-  into high-signal architectural blueprints, executive summaries, and structured wisdom.
-argument-hint: "[link or research topic] [--deep|--quick|--arch|--wisdom|--stream|--short]"
+  Deep research, multi-source ingestion, tool hunting, and distillation engine (/rsm).
+  Ingests YouTube, TikTok, Instagram, X, Twitch, repos, and links to extract high-signal
+  summaries, detect mentioned tools/stacks, search official free links/install commands,
+  scout related skills, and scaffold new custom skills.
+argument-hint: "[link or research topic] [--deep|--quick|--tools|--arch|--wisdom|--stream|--short]"
 user-invocable: true
 ---
 
-# OmniRSM — Universal Deep Research & Multimedia Distillation
+# OmniRSM 🧠⚡ — Universal Deep Research, Tool Hunter & Multimedia Distillation
+> 🇧🇷 **Projeto Brasileiro Open-Source** desenvolvido para ecossistemas de agentes de IA (Antigravity, Claude Code, Cursor, Windsurf).
 
-OmniRSM is a high-signal knowledge extraction and research engine for AI coding agents and LLMs.
-It blends established cognitive patterns and extraction pipelines:
-- **Daniel Miessler's Fabric** (`extract_wisdom`, `summarize_lecture`, `analyze_claims`)
-- **Repomix / Repopack** (Codebase packing, AST token budgeting, and architecture analysis)
-- **Jina AI Reader & Search (`r.jina.ai`)** (Clean markdown extraction without web bloat)
-- **Universal Media Extraction Pipeline** (`yt-dlp` + `faster-whisper` + `streamlink`)
-- **Deep Research Frameworks** (Source triangulation, claim cross-examination, iterative exploration)
+OmniRSM é um motor universal de inteligência, pesquisa profunda e destilação de conhecimento para agentes de IA e desenvolvedores.
+Ele processa links multimídia, extrai sabedoria e caça ativamente todas as ferramentas e skills mencionadas por criadores.
 
 ---
 
-## Invocation
+## 🎯 Modos de Invocação
 
 ```text
-/rsm [link or query] [flags]
+/rsm [link ou tópico] [flags]
 ```
 
-### Supported Inputs:
-- **YouTube:** `/rsm https://www.youtube.com/watch?v=xyz` (Timed transcript synthesis & wisdom extraction)
-- **TikTok:** `/rsm https://www.tiktok.com/@user/video/123456` (Hook, core insight & actionable takeaway)
-- **Instagram Reels:** `/rsm https://www.instagram.com/reel/xyz123` (Audio extraction, Whisper STT & caption synthesis)
-- **Twitch VODs & Clips:** `/rsm https://www.twitch.tv/videos/12345678` (Topic timeline & high-impact highlights)
-- **Kick Streams & Clips:** `/rsm https://kick.com/video/xyz` (Stream ingestion, discussion points & community consensus)
-- **Twitter / X:** `/rsm https://x.com/user/status/123456` (Video transcription + post context)
-- **GitHub Repositories:** `/rsm https://github.com/owner/repo` (Architecture overview, directory tree, Mermaid data flow & onboarding)
-- **Web Articles & Papers:** `/rsm https://arxiv.org/abs/...` (Thesis, methodology, evidence, and practical takeaways)
-- **Topic Deep Dive:** `/rsm "distributed consensus algorithms" --deep` (Multi-source technical dossier)
+### Flags Disponíveis:
+- `--tools`: **Caçador de Ferramentas & Ecossistema de Skills** (Mapeia ferramentas citadas, links oficiais, comandos de instalação gratuitos, sugere novas skills e conexões).
+- `--deep`: Análise técnica e prática exaustiva sem cortes ou superficialidades.
+- `--quick`: Resumo executivo ultradenso (TL;DR em 2 frases + 5 tópicos de ação rápida).
+- `--wisdom`: Formato Fabric (grandes ideias, citações literais, hábitos e perguntas em aberto).
+- `--arch`: Focado em repositórios de código (arquitetura, árvore de pastas, fluxo Mermaid e onboarding de devs).
+- `--stream`: Focado em transmissões ao vivo (Twitch, Kick, YouTube Live): marcos na linha do tempo e debates de pico.
+- `--short`: Focado em Shorts/Reels/TikTok (gancho, ideia central e ação imediata).
 
 ---
 
-## Output Flags
+## 🛠️ Pipeline 1: Caçador de Ferramentas & Criador de Skills (Tool Scout)
 
-- `--quick`: Ultra-dense executive summary (TL;DR in 2 sentences + 5 actionable points).
-- `--deep`: Exhaustive technical analysis without omitting nuances, benchmarks, or edge cases.
-- `--short`: Tailored for short-form video (TikTok, Reels, Shorts): Hook analysis, Single Big Idea, and Immediate Action.
-- `--stream`: Tailored for long livestreams (Twitch, Kick): Chronological topic milestones, peak moments, and creator opinions.
-- `--arch`: Tailored for codebases: Architecture pattern, folder breakdown, Mermaid diagram, and onboarding guide.
-- `--wisdom`: Fabric format: Main ideas, verbatim quotes, habits/recommendations, and open questions.
+Sempre que um vídeo, artigo ou post mencionar ferramentas, bibliotecas, apps ou fluxos de trabalho (ex: Remotion, Claude Code, FFmpeg, Docker, etc.):
+
+1. **Mapeamento de Ferramentas Citadas:**
+   - Nome da ferramenta e contexto de uso pelo criador.
+   - O que ela resolve e por que foi escolhida.
+
+2. **Busca Ativa de Links & Instalação 100% Gratuita:**
+   - Link oficial direto (documentação / download).
+   - Comandos exatos de terminal (`npm`, `pip`, `winget`, `brew`, `docker`).
+   - Priorizar sempre fontes gratuitas, open-source e planos livres (sem paywall surpresa).
+
+3. **Mapeamento & Criação de Skills:**
+   - **Skills Conectadas:** Quais skills do ecossistema combinam com ela (ex: `gpt-taste`, `frontend-design`, `shadcn-ui-master`).
+   - **Geração de Nova Skill:** Se a ferramenta for relevante, estruturar uma nova skill pronta para o assistente (com `SKILL.md`, prompts e regras).
+
+4. **Entrega Visual & Oferta de Exportação:**
+   - Conteúdo visual, dinâmico, limpo e direto, fácil de entender até por um adolescente.
+   - **Pergunta Final Obrigatória:** Perguntar ao usuário se deseja salvar o resultado como `.md` (visual formatado) ou `.txt` dentro da pasta padrão da skill (`rsm-intel/` ou pasta do projeto).
 
 ---
 
-## Extraction Pipeline & Fallback Architecture
+## 📡 Pipeline 2: Ingestão Multimídia & Fallback
 
-### 1. Audio & Video Ingestion (YouTube, TikTok, Instagram, Twitch, Kick, X)
-1. **Tier 1 (Native Subtitles):** Attempt instant extraction of auto/creator subtitles via `yt-dlp`:
+### 1. Áudio & Vídeo (YouTube, TikTok, Instagram, Twitch, Kick, X)
+1. **Tier 1 (Legendas Nativas):** Extração instantânea de legendas via `yt-dlp` ou API de legendas:
    ```bash
-   yt-dlp --skip-download --write-auto-sub --sub-lang "en,pt" <URL>
+   yt-dlp --skip-download --write-auto-sub --sub-lang "pt,en,es" <URL>
    ```
-2. **Tier 2 (Speech-to-Text Fallback):** For platforms without public subtitles (TikTok, Reels, Kick, Twitch clips):
+2. **Tier 2 (Speech-to-Text Fallback):** Para plataformas sem legendas públicas (TikTok, Reels, Kick, clips):
    ```bash
    yt-dlp -x --audio-format mp3 -o "temp_audio.mp3" <URL>
-   # Transcribe using faster-whisper or Whisper API
+   # Transcrever via faster-whisper ou Whisper API
    ```
-3. **Tier 3 (Long Streams / VODs):** Slicing key segments to avoid memory saturation:
+3. **Tier 3 (Streams Longas / VODs):** Fatiamento de trechos-chave:
    ```bash
    yt-dlp --download-sections "*00:00:00-00:30:00" -x --audio-format mp3 <URL>
    ```
 
-### 2. Code Repositories (GitHub / GitLab)
-- Run `npx repomix --remote <owner/repo>` to pack the codebase with token budgeting, or inspect repository structure, entrypoints, and manifest files (`package.json`, `Cargo.toml`, `pyproject.toml`, etc.).
+### 2. Repositórios de Código (GitHub / GitLab)
+- Executar `npx repomix --remote <owner/repo>` para empacotar o repositório com token budgeting, inspecionar árvore de diretórios, entrypoints e manifests (`package.json`, `Cargo.toml`, etc.).
 
-### 3. Web Pages & Documentation
-- Fetch clean Markdown via `https://r.jina.ai/<URL>` to bypass popups, cookie consent banners, and client-side JavaScript overhead.
+### 3. Artigos Web & Documentação
+- Coletar Markdown limpo via `https://r.jina.ai/<URL>` contornando popups, banners de cookies e excesso de scripts.
 
 ---
 
-## Output Quality Principles
-1. **Zero Fluff (No AI Slop):** Avoid empty introductory meta-commentary (e.g., "In this video the speaker discusses..."). Start directly with high-density insights.
-2. **Literal Quotes:** Preserve exact words for counterintuitive or high-signal statements.
-3. **Structured Visuals:** Use Markdown tables, Mermaid diagrams for architecture/dataflows, and clear visual hierarchies.
+## ⚡ Princípios de Qualidade
+1. **Zero Enrolação:** Sem introduções vazias de IA. Vá direto ao conteúdo de alto impacto.
+2. **Citações Literais:** Preserve frases exatas para ideias contraintuitivas ou de alto sinal.
+3. **Didático e Visual:** Uso constante de tabelas Markdown, diagramas Mermaid e cartões de comandos.
