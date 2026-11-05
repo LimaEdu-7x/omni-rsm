@@ -1,6 +1,6 @@
 {
   "name": "omni-rsm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Universal AI skill & CLI for deep research and multi-source distillation: YouTube, TikTok, Instagram Reels, Twitch, Kick, GitHub repositories, web articles and papers.",
   "main": "index.js",
   "bin": {
