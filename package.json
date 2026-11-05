@@ -4,8 +4,8 @@
   "description": "Universal AI skill & CLI for deep research and multi-source distillation: YouTube, TikTok, Instagram Reels, Twitch, Kick, GitHub repositories, web articles and papers.",
   "main": "index.js",
   "bin": {
-    "omni-rsm": "./bin/rsm.js",
-    "rsm": "./bin/rsm.js"
+    "omni-rsm": "bin/rsm.js",
+    "rsm": "bin/rsm.js"
   },
   "scripts": {
     "start": "node bin/rsm.js"
@@ -32,7 +32,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/LimaEdu-7x/omni-rsm.git"
+    "url": "git+https://github.com/LimaEdu-7x/omni-rsm.git"
   },
   "bugs": {
     "url": "https://github.com/LimaEdu-7x/omni-rsm/issues"
