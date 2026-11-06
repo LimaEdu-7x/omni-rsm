@@ -1,16 +1,16 @@
 # OmniRSM 🧠⚡
 
-> **Universal Deep Research, Tool Hunter & Multi-Source Distillation Engine for AI Coding Agents and LLMs.**  
-> 🇧🇷 **Projeto Brasileiro Open-Source** feito com foco em alta densidade de sinal, pesquisa profunda e caça ativa de ferramentas gratuitas.
+> **Universal Deep Research, Tool Hunter, Voice & Style Profiler & Multi-Source Distillation Engine for AI Coding Agents and LLMs.**  
+> 🇧🇷 **Projeto Brasileiro Open-Source** feito com foco em alta densidade de sinal, pesquisa profunda, caça ativa de ferramentas gratuitas e engenharia de voz de criadores.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Origin: Brazil](https://img.shields.io/badge/Made%20in-Brazil%20%F0%9F%87%A7%F0%9F%87%B7-green.svg)](#-projeto-brasileiro-open-source)
 [![Skill: Antigravity](https://img.shields.io/badge/Skill-Antigravity-orange.svg)](#antigravity--gemini-cli)
 [![Compatible: Claude Code](https://img.shields.io/badge/Compatible-Claude%20Code-purple.svg)](#claude-code)
 [![Compatible: Cursor](https://img.shields.io/badge/Compatible-Cursor%20%2F%20Windsurf-teal.svg)](#cursor-ide)
-[![NPM Version](https://img.shields.io/badge/NPM-omni--rsm-red.svg)](https://www.npmjs.com/package/omni-rsm)
+[![NPM Version](https://img.shields.io/badge/NPM-v1.2.0-red.svg)](https://www.npmjs.com/package/omni-rsm)
 
-Transforme vídeos do YouTube, TikToks, Instagram Reels, streams da Twitch/Kick, repositórios do GitHub, artigos científicos e sites técnicos em relatórios visuais de altíssimo sinal e descubra todas as ferramentas gratuitas mencionadas com um único comando.
+Transforme vídeos do YouTube, TikToks, Instagram Reels, streams da Twitch/Kick, repositórios do GitHub, artigos científicos e sites técnicos em relatórios visuais de altíssimo sinal, descubra ferramentas gratuitas e extraia o DNA sonoro e estilo de fala de criadores com um único comando.
 
 ---
 
@@ -20,6 +20,7 @@ O **OmniRSM** nasceu no Brasil com a missão de empoderar desenvolvedores, criad
 
 Criado e mantido por [Eduardo Lima (LimaEdu-7x)](https://github.com/LimaEdu-7x), o projeto prioriza:
 - **Democratização e Acesso Gratuito:** Mapeamento ativo de ferramentas open-source, comandos de terminal prontos e tiers 100% gratuitos.
+- **Engenharia de Voz & DNA Sonoro:** Estudo profundo de prosódia, cadência e estilo de fala de criadores usando percepção de áudio multimodal nativa.
 - **Linguagem Clara e Visual:** Conteúdo estruturado de forma didática e empolgante, legível tanto para um profissional sênior quanto para um jovem começando na área de tecnologia.
 - **Ecossistema Aberto:** Integração nativa com Antigravity, Claude Code, Maestri Canvas, Cursor, Windsurf e ChatGPT.
 
@@ -31,10 +32,11 @@ A maioria dos resumos automáticos de IA é rasa, genérica e cheia de enrolaç�
 
 O **OmniRSM** une os melhores padrões mundiais de destilação cognitiva em uma única skill unificada:
 1. **Zero Enrolação (No AI Slop):** Vai direto ao cerne técnico e prático.
-2. **Caçador de Ferramentas & Free Stack Scout (`--tools`):** Detecta ferramentas, bibliotecas e frameworks citados por criadores, localiza seus links oficiais e comandos exatos de instalação (npm, pip, winget, brew, docker), priorizando alternativas gratuitas.
-3. **Sintetizador de Skills:** Avalia se um workflow deve se tornar uma nova Skill de IA e conecta com o ecossistema existente.
-4. **Exportação sob Medida:** Gera relatórios ultra-visuais em `.md` ou `.txt` organizados em pastas dedicadas.
-5. **Suporte Multimídia Completo:** Processa desde vídeos longos do YouTube e VODs de streamers até Reels curtos, papers do arXiv e repositórios inteiros de código.
+2. **🎙️ Estudo de Voz, Estilo & DNA Sonoro (`--voice`):** Extrai a faixa de áudio bruto (`.mp3`), analisa a prosódia, ritmo (WPM), pausas dramáticas, bordões, jargões, ganchos e gera um artefato `creator-voice.md` com prompt de sistema pronto para replicar o estilo de qualquer criador.
+3. **🛠️ Caçador de Ferramentas & Free Stack Scout (`--tools`):** Detecta ferramentas, bibliotecas e frameworks citados por criadores, localiza seus links oficiais e comandos exatos de instalação (npm, pip, winget, brew, docker), priorizando alternativas gratuitas.
+4. **Sintetizador de Skills:** Avalia se um workflow deve se tornar uma nova Skill de IA e conecta com o ecossistema existente.
+5. **Exportação sob Medida:** Gera relatórios ultra-visuais em `.md` ou `.txt` organizados em pastas dedicadas (`rsm-intel/` ou raiz do projeto).
+6. **Suporte Multimídia Completo:** Processa desde vídeos longos do YouTube e VODs de streamers até Reels curtos, papers do arXiv e repositórios inteiros de código.
 
 ---
 
@@ -42,6 +44,7 @@ O **OmniRSM** une os melhores padrões mundiais de destilação cognitiva em uma
 
 | Categoria | Plataformas | Motor / Estratégia de Extração | Saída Principal |
 | :--- | :--- | :--- | :--- |
+| **Engenharia de Voz & Estilo** | YouTube, Reels, TikTok, Podcasts | Áudio bruto `yt-dlp -x` + Escuta Multimodal da IA | DNA sonoro, prosódia, léxico, bordões e `creator-voice.md` |
 | **Caça de Ferramentas** | YouTube, Artigos, Tutoriais | Varredura de links oficiais + comandos CLI gratuitos | Tabela de ferramentas, links, comandos e proposta de nova skill |
 | **Vídeos Curtos** | TikTok, Instagram Reels, YouTube Shorts | Extração de áudio `yt-dlp` + Whisper STT + Legendas | Análise de Gancho, Ideia Central Única, Ação Imediata |
 | **Vídeos Longos** | YouTube, Vimeo, Rumble, Bilibili | Scraper de legendas nativas (`--write-auto-sub`) | Roteiro de cenas, Tese central, Citações literais, Perguntas |
@@ -62,6 +65,9 @@ Execute a skill no seu terminal ou assistente de IA usando o comando `/rsm` ou u
 
 ### Exemplos Práticos:
 ```bash
+# 🎙️ Estudo aprofundado do estilo de fala, voz, bordões e tom do criador
+/rsm https://www.youtube.com/watch?v=xyz --voice
+
 # 🛠️ Caçar ferramentas citadas em um tutorial com comandos de instalação gratuitos
 /rsm https://www.youtube.com/watch?v=suBGHMAjzHs --tools
 
@@ -82,6 +88,7 @@ Execute a skill no seu terminal ou assistente de IA usando o comando `/rsm` ou u
 ```
 
 ### Flags Disponíveis:
+- `--voice`: **Estudo de Voz, Estilo & DNA Sonoro** (Prosódia acústica, cadência, pausas, tom, vocabulário, bordões e gerador de prompt `creator-voice.md`).
 - `--tools`: Caçador de Ferramentas, comandos de instalação gratuitos e gerador de skills.
 - `--deep`: Análise técnica exaustiva sem cortes ou superficialidades.
 - `--quick`: Resumo ultradenso em 2 frases + 5 ações práticas.
