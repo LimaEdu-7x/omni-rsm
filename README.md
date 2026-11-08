@@ -18,7 +18,7 @@ Transforme vídeos do YouTube, TikToks, Instagram Reels, streams da Twitch/Kick,
 
 O **OmniRSM** nasceu no Brasil com a missão de empoderar desenvolvedores, criadores de conteúdo e entusiastas de IA a extrair conhecimento de verdade da web, eliminando o "blá-blá-blá" e o lixo gerado por inteligências artificiais.
 
-Criado e mantido por [Eduardo Lima (LimaEdu-7x)](https://github.com/LimaEdu-7x), o projeto prioriza:
+Criado e mantido por [LimaEdu-7x](https://github.com/LimaEdu-7x), o projeto prioriza:
 - **Democratização e Acesso Gratuito:** Mapeamento ativo de ferramentas open-source, comandos de terminal prontos e tiers 100% gratuitos.
 - **Engenharia de Voz & DNA Sonoro:** Estudo profundo de prosódia, cadência e estilo de fala de criadores usando percepção de áudio multimodal nativa.
 - **Linguagem Clara e Visual:** Conteúdo estruturado de forma didática e empolgante, legível tanto para um profissional sênior quanto para um jovem começando na área de tecnologia.
