@@ -8,7 +8,6 @@
 [![Skill: Antigravity](https://img.shields.io/badge/Skill-Antigravity-orange.svg)](#antigravity--gemini-cli)
 [![Compatible: Claude Code](https://img.shields.io/badge/Compatible-Claude%20Code-purple.svg)](#claude-code)
 [![Compatible: Cursor](https://img.shields.io/badge/Compatible-Cursor%20%2F%20Windsurf-teal.svg)](#cursor-ide)
-[![NPM Version](https://img.shields.io/badge/NPM-v1.2.0-red.svg)](https://www.npmjs.com/package/omni-rsm)
 
 Transforme vídeos do YouTube, TikToks, Instagram Reels, streams da Twitch/Kick, repositórios do GitHub, artigos científicos e sites técnicos em relatórios visuais de altíssimo sinal, descubra ferramentas gratuitas e extraia o DNA sonoro e estilo de fala de criadores com um único comando.
 
@@ -20,14 +19,13 @@ Transforme vídeos do YouTube, TikToks, Instagram Reels, streams da Twitch/Kick,
 npx skills add LimaEdu-7x/omni-rsm
 ```
 
-O menu pede os agentes (Claude Code, Codex, Gemini CLI, Cursor e outros) e o escopo (projeto ou global). Use `--list` para só ver o que será instalado.
+O menu pede os agentes (Claude Code, Codex, Gemini CLI, Cursor e outros) e o escopo (projeto ou global). Use `--list` para só ver o que será instalado. Para atualizar depois: `npx skills update`. Os comandos `npx github:...` abaixo baixam a versão mais recente do GitHub a cada execução, sem depender de publicação no npm.
 
 **Alternativa (instalador próprio):**
 
 ```bash
-npx omni-rsm install        # menu interativo
-npx omni-rsm install all    # todas as IAs, sem menu
-npx github:LimaEdu-7x/omni-rsm install
+npx github:LimaEdu-7x/omni-rsm install        # menu interativo
+npx github:LimaEdu-7x/omni-rsm install all    # todas as IAs, sem menu
 ```
 
 ## 🇧🇷 Projeto Brasileiro Open-Source

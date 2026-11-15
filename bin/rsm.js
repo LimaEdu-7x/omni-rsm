@@ -24,10 +24,10 @@ function printHelp() {
 🧠 OmniRSM — Universal Deep Research & Multimedia Distillation Engine
 
 Usage:
-  npx omni-rsm install           Interactive multi-selection menu
-  npx omni-rsm install <targets> Direct install (e.g. npx omni-rsm install antigravity claude)
-  npx omni-rsm print             Print the raw SKILL.md content to stdout
-  npx omni-rsm info              Show supported platforms and commands
+  npx github:LimaEdu-7x/omni-rsm install           Interactive multi-selection menu
+  npx github:LimaEdu-7x/omni-rsm install <targets> Direct install (e.g. npx github:LimaEdu-7x/omni-rsm install antigravity claude)
+  npx github:LimaEdu-7x/omni-rsm print             Print the raw SKILL.md content to stdout
+  npx github:LimaEdu-7x/omni-rsm info              Show supported platforms and commands
 
 Available Targets:
   antigravity  Installs to ~/.gemini/config/skills/omni-rsm/SKILL.md
