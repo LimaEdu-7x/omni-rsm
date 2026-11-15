@@ -12,9 +12,9 @@ function getHomeDir() {
 }
 
 const TARGET_OPTIONS = [
-  { title: '🪐 Antigravity / Gemini CLI', value: 'antigravity', selected: true, description: '~/.gemini/config/skills/rsm' },
-  { title: '🟣 Claude Code', value: 'claude', description: '~/.claude/skills/rsm' },
-  { title: '⚡ Cursor IDE', value: 'cursor', description: '.cursor/rules/rsm.mdc' },
+  { title: '🪐 Antigravity / Gemini CLI', value: 'antigravity', selected: true, description: '~/.gemini/config/skills/omni-rsm' },
+  { title: '🟣 Claude Code', value: 'claude', description: '~/.claude/skills/omni-rsm' },
+  { title: '⚡ Cursor IDE', value: 'cursor', description: '.cursor/rules/omni-rsm.mdc' },
   { title: '🌊 Windsurf', value: 'windsurf', description: '.windsurfrules' },
   { title: '📁 Projeto Local', value: 'local', description: './SKILL.md' }
 ];
@@ -30,9 +30,9 @@ Usage:
   npx omni-rsm info              Show supported platforms and commands
 
 Available Targets:
-  antigravity  Installs to ~/.gemini/config/skills/rsm/SKILL.md
-  claude       Installs to ~/.claude/skills/rsm/SKILL.md
-  cursor       Creates .cursor/rules/rsm.mdc in current working directory
+  antigravity  Installs to ~/.gemini/config/skills/omni-rsm/SKILL.md
+  claude       Installs to ~/.claude/skills/omni-rsm/SKILL.md
+  cursor       Creates .cursor/rules/omni-rsm.mdc in current working directory
   windsurf     Appends rule to .windsurfrules in current working directory
   local        Copies SKILL.md into current working directory
   all          Installs into all supported environments
@@ -54,7 +54,7 @@ function installToTarget(target) {
   switch (normalized) {
     case 'antigravity':
     case 'gemini':
-      destDir = path.join(getHomeDir(), '.gemini', 'config', 'skills', 'rsm');
+      destDir = path.join(getHomeDir(), '.gemini', 'config', 'skills', 'omni-rsm');
       destFile = path.join(destDir, 'SKILL.md');
       fs.mkdirSync(destDir, { recursive: true });
       fs.writeFileSync(destFile, skillContent, 'utf8');
@@ -62,7 +62,7 @@ function installToTarget(target) {
       break;
 
     case 'claude':
-      destDir = path.join(getHomeDir(), '.claude', 'skills', 'rsm');
+      destDir = path.join(getHomeDir(), '.claude', 'skills', 'omni-rsm');
       destFile = path.join(destDir, 'SKILL.md');
       fs.mkdirSync(destDir, { recursive: true });
       fs.writeFileSync(destFile, skillContent, 'utf8');
@@ -71,7 +71,7 @@ function installToTarget(target) {
 
     case 'cursor':
       destDir = path.join(process.cwd(), '.cursor', 'rules');
-      destFile = path.join(destDir, 'rsm.mdc');
+      destFile = path.join(destDir, 'omni-rsm.mdc');
       fs.mkdirSync(destDir, { recursive: true });
       fs.writeFileSync(destFile, skillContent, 'utf8');
       console.log(`  ✓ [Cursor IDE] Criado em: ${destFile}`);

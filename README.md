@@ -22,6 +22,14 @@ npx skills add LimaEdu-7x/omni-rsm
 
 O menu pede os agentes (Claude Code, Codex, Gemini CLI, Cursor e outros) e o escopo (projeto ou global). Use `--list` para só ver o que será instalado.
 
+**Alternativa (instalador próprio):**
+
+```bash
+npx omni-rsm install        # menu interativo
+npx omni-rsm install all    # todas as IAs, sem menu
+npx github:LimaEdu-7x/omni-rsm install
+```
+
 ## 🇧🇷 Projeto Brasileiro Open-Source
 
 O **OmniRSM** nasceu no Brasil com a missão de empoderar desenvolvedores, criadores de conteúdo e entusiastas de IA a extrair conhecimento de verdade da web, eliminando o "blá-blá-blá" e o lixo gerado por inteligências artificiais.
@@ -107,63 +115,29 @@ Execute a skill no seu terminal ou assistente de IA usando o comando `/rsm` ou u
 
 ---
 
-## 📦 Como Instalar nas Suas IAs
-
-### 1. Instalador Interativo via Terminal (Recomendado)
-Execute `npx omni-rsm install` para abrir o menu interativo com caixas de seleção. Use as **Setas** para navegar, **Espaço** para marcar as IAs desejadas e **Enter** para concluir:
-
-```bash
-npx omni-rsm install
-```
-
-```text
-🧠 OmniRSM Installer
-? Em quais IAs você deseja instalar a OmniRSM? (Setas: mover | Espaço: marcar/desmarcar | Enter: confirmar)
- ❯ [✓] 🪐 Antigravity / Gemini CLI (~/.gemini/config/skills/rsm/SKILL.md)
-   [✓] 🟣 Claude Code (~/.claude/skills/rsm/SKILL.md)
-   [✓] ⚡ Cursor IDE (.cursor/rules/rsm.mdc)
-   [ ] 🌊 Windsurf (.windsurfrules)
-   [ ] 📁 Projeto Local (./SKILL.md)
-(Pressione Enter para confirmar a seleção)
-```
-
-#### Instalação Direta sem Menu (Headless):
-```bash
-# Instalar em todas as IAs suportadas de uma vez:
-npx omni-rsm install all
-
-# Instalar em IAs específicas:
-npx omni-rsm install antigravity claude cursor
-
-# Ou diretamente do repositório no GitHub:
-npx github:LimaEdu-7x/omni-rsm install
-```
-
----
-
-### 2. Instalação Manual
+## 🛠️ Instalação Manual
 
 #### 🪐 Antigravity & Gemini CLI (AGY)
 ```bash
 # Windows (PowerShell)
-mkdir -p "$HOME\.gemini\config\skills\rsm"
-curl -sL https://raw.githubusercontent.com/LimaEdu-7x/omni-rsm/main/SKILL.md -o "$HOME\.gemini\config\skills\rsm\SKILL.md"
+mkdir -p "$HOME\.gemini\config\skills\omni-rsm"
+curl -sL https://raw.githubusercontent.com/LimaEdu-7x/omni-rsm/main/SKILL.md -o "$HOME\.gemini\config\skills\omni-rsm\SKILL.md"
 
 # Linux / macOS
-mkdir -p ~/.gemini/config/skills/rsm
-curl -sL https://raw.githubusercontent.com/LimaEdu-7x/omni-rsm/main/SKILL.md -o ~/.gemini/config/skills/rsm/SKILL.md
+mkdir -p ~/.gemini/config/skills/omni-rsm
+curl -sL https://raw.githubusercontent.com/LimaEdu-7x/omni-rsm/main/SKILL.md -o ~/.gemini/config/skills/omni-rsm/SKILL.md
 ```
 
 #### 🟣 Claude Code
 ```bash
-mkdir -p ~/.claude/skills/rsm
-curl -sL https://raw.githubusercontent.com/LimaEdu-7x/omni-rsm/main/SKILL.md -o ~/.claude/skills/rsm/SKILL.md
+mkdir -p ~/.claude/skills/omni-rsm
+curl -sL https://raw.githubusercontent.com/LimaEdu-7x/omni-rsm/main/SKILL.md -o ~/.claude/skills/omni-rsm/SKILL.md
 ```
 
 #### ⚡ Cursor IDE
 ```bash
 mkdir -p .cursor/rules
-curl -sL https://raw.githubusercontent.com/LimaEdu-7x/omni-rsm/main/SKILL.md -o .cursor/rules/rsm.mdc
+curl -sL https://raw.githubusercontent.com/LimaEdu-7x/omni-rsm/main/SKILL.md -o .cursor/rules/omni-rsm.mdc
 ```
 
 #### 🌊 Windsurf
