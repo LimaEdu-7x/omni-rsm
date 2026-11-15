@@ -1,5 +1,5 @@
 ---
-name: rsm
+name: omni-rsm
 description: >
   Deep research, multi-source ingestion, tool hunting, and distillation engine (/rsm).
   Ingests YouTube, TikTok, Instagram, X, Twitch, repos, and links to extract high-signal
