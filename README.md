@@ -14,6 +14,14 @@ Transforme vídeos do YouTube, TikToks, Instagram Reels, streams da Twitch/Kick,
 
 ---
 
+## 📥 Instalar
+
+```text
+npx skills add LimaEdu-7x/omni-rsm
+```
+
+O menu pede os agentes (Claude Code, Codex, Gemini CLI, Cursor e outros) e o escopo (projeto ou global). Use `--list` para só ver o que será instalado.
+
 ## 🇧🇷 Projeto Brasileiro Open-Source
 
 O **OmniRSM** nasceu no Brasil com a missão de empoderar desenvolvedores, criadores de conteúdo e entusiastas de IA a extrair conhecimento de verdade da web, eliminando o "blá-blá-blá" e o lixo gerado por inteligências artificiais.
